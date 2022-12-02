@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http/:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/list">Return list</a>
+<table width="700px" border="1">
+    <tr>
+        <th>No</th>
+        <th>Code Student</th>
+        <th>Name Student</th>
+        <th>Point Student</th>
+        <th>Gender Student</th>
+        <th>Detail</th>
+    </tr>
+    <tr th:each="product,loop : ${product}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.manufacturer}"></td>
+        <!--        <td>-->
+        <!--            <p th:if="${student.gender == 0}">FeMale</p>-->
+        <!--            <p th:if="${student.gender == 1}">Male</p>-->
+        <!--            <p th:if="${student.gender != 1 && student.gender !=0}">Other</p>-->
+        <!--        </td>-->
+    </tr>
+</table>
+</body>
+</html>
