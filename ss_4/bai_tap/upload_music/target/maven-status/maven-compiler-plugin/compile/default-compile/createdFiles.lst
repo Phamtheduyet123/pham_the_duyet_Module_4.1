@@ -1,0 +1,7 @@
+model\ProductForm.class
+controller\HomeController.class
+controller\UploadController.class
+service\SongService.class
+model\Song.class
+config\AppConfiguration.class
+config\AppInitializer.class
