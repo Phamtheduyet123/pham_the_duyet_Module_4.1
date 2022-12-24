@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/list123}">Quay lai trang List</a>
+<p th:text="${msg}"></p>
+<table width="700px" border="1" style="text-align: center">
+    <tr>
+        <th>ID</th>
+        <th>ID Book</th>
+        <th>Name Book</th>
+        <th>So sach con lai</th>
+        <th>Muon sach</th>
+    </tr>
+    <tr th:each="book,loop : ${detailBook}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${book.id}"></td>
+        <td th:text="${book.namebook}"></td>
+        <td th:text="${book.number}"></td>
+        <td><a th:href="@{/order/{id}(id=${book.id})}">Order</a></td>
+<!--        <td><a onclick="" th:href="@{/order/returnBook}">Return Book</a></td>-->
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table width="700px" border="1" style="text-align: center">
+    <tr>
+        <th>ID</th>
+        <th>ID Book</th>
+        <th>Name Book</th>
+        <th>So sach con lai</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="book,loop : ${listBook}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${book.id}"></td>
+        <td th:text="${book.namebook}"></td>
+        <td th:text="${book.number}"></td>
+        <td><a th:href="@{/detail/{id}(id=${book.id})}">Detail</a></td>
+    </tr>
+</table>
+<div>
+    <span>
+        <a th:if = "${listBook.hasPrevious()}"
+           th:href="@{/list123(page = ${listBook.number - 1})}">Previous</a>
+    </span>
+    <span th:each="pageNo: ${#numbers.sequence(0,listBook.totalPages - 1)}">
+        <a th:href="@{/list123(page = ${pageNo})}" th:text="${pageNo}"></a>
+    </span>
+    <span>
+        <a th:if = "${listBook.hasNext()}"
+           th:href="@{/list123(page = ${listBook.number +1})}">Next</a>
+    </span>
+</div>
+</body>
+</html>
